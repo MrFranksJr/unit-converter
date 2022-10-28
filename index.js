@@ -28,7 +28,7 @@ function calcEverything(input) {
     massField.textContent = `${input} pounds = ${massToKilos.toFixed(2)} kilos | ${input} kilos = ${massToPounds.toFixed(2)} pounds`
 }
 
-calcEverything(inputEl.value)
+calcEverything(20)
 
 inputEl.addEventListener('change', function() {
     console.log("event triggered")

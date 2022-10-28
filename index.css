@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    appearance: textfield;
+    border-style: 1px solid #FFFBEB;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #F43F5E;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #F43F5E;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #F43F5E;
+  }
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    border-style: none;
+    padding-top: 30px;
+    background-color: ##FFF1F2;
+}
+
+.container {
+    width: 550px;
+    margin: 0 auto;
+}
+
+.top-section {
+    background-color: #E11D48;
+    border-radius: 5px 5px 0px 0px;
+    height: 210px;
+    padding-top: 30px;
+}
+
+h1 {
+    color: #FFF1F2;
+    margin: 0px 0px 25px 0px;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.inputnumber {
+    width: 120px;
+    height: 83;
+    font-size: 58px;
+    font-weight: 800;
+    color: #FECDD3;
+    border: 2px solid #FFE4E6;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #BE123C;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.inputnumber:focus {
+    background-color: #FB7185;
+    outline: none;
+    color: #FFF1F2;
+}
+
+.bottom-section {
+    height: 520px;
+    background-color: #FECDD3;
+    border-radius: 0 0 5px 5px;
+    padding-top: 15px;
+}
+
+h3 {
+    color: #881337;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.subnote {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.subsection {
+    width: 500px;
+    height: 110px;
+    background-color: #FFF1F2;
+    margin: 15px auto;
+    padding: 20px 15px;
+    border-radius: 5px;
+}
+
+.subsection:first-child {
+    margin: 0px auto;
+}

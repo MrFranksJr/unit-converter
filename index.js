@@ -1,10 +1,3 @@
-/*
-1 meter = 3.281 feet
-1 liter = 0.264 gallon
-1 kilogram = 2.204 pound
-1 celcius = [(°F-32)×5]/9
-*/
-
 const inputEl = document.getElementById("input-el")
 
 function calcEverything(input) {
@@ -34,3 +27,25 @@ inputEl.addEventListener('change', function() {
     console.log("event triggered")
     calcEverything(inputEl.value)
 });
+
+
+//darkmode
+const dModeToggle = document.getElementById("darkmode-toggle")
+
+dModeToggle.addEventListener("change", e => {
+    const bodyEl = document.body
+    const bottomSection = document.getElementById("bottom-section")
+    const subSection = document.getElementsByClassName("subsection")
+    const h1 = document.getElementsByTagName("h1")
+    const h3 = document.getElementsByTagName("h3")
+    
+    bodyEl.classList.toggle("darkmode")
+    h1[0].classList.toggle("dmodeH")
+    for (let x=0; x < h3.length; x++) {
+        h3[x].classList.toggle("dmodeH")
+    }
+    bottomSection.classList.toggle("dmodeBottom")
+    for (let i=0; i < subSection.length; i++) {
+        subSection[i].classList.toggle("dmodeSubSection")
+    }
+})

@@ -31,21 +31,84 @@ inputEl.addEventListener('change', function() {
 
 //darkmode
 const dModeToggle = document.getElementById("darkmode-toggle")
+const bodyEl = document.body
+const bottomSection = document.getElementById("bottom-section")
+const subSection = document.getElementsByClassName("subsection")
+const h1 = document.getElementsByTagName("h1")
+const h3 = document.getElementsByTagName("h3")
 
-dModeToggle.addEventListener("change", e => {
-    const bodyEl = document.body
-    const bottomSection = document.getElementById("bottom-section")
-    const subSection = document.getElementsByClassName("subsection")
-    const h1 = document.getElementsByTagName("h1")
-    const h3 = document.getElementsByTagName("h3")
+//query to detect system
+detectMode()
+
+function detectMode() {
+    if (localStorage.getItem("modePref") === "Dark") {
+        dModeToggle.checked = true
+        switchModes()
+    }
+    else if (localStorage.getItem("modePref") === "Light") {
+        dModeToggle.checked = false
+        switchModes()
+    }
+    else {
+        const runColorMode = (fn) => {
+        if (!window.matchMedia) {
+        return;
+        }
+        const query = window.matchMedia('(prefers-color-scheme: dark)')
     
-    bodyEl.classList.toggle("darkmode")
-    h1[0].classList.toggle("dmodeH")
-    for (let x=0; x < h3.length; x++) {
-        h3[x].classList.toggle("dmodeH")
+        fn(query.matches);
+
+        query.addEventListener('change', (event) => fn(event.matches))
     }
-    bottomSection.classList.toggle("dmodeBottom")
-    for (let i=0; i < subSection.length; i++) {
-        subSection[i].classList.toggle("dmodeSubSection")
+    
+    runColorMode((isDarkMode) => {
+        if (isDarkMode) {
+            if (localStorage.getItem("modePref") === null) {
+            dModeToggle.checked = true
+            switchModes()
+            }
+        } else {
+            if (localStorage.getItem("modePref") === null) {
+            dModeToggle.checked = false
+            switchModes()
+            }
+        }
+    })
     }
-})
+}
+
+
+dModeToggle.addEventListener("change", (event) => {
+    if (event.currentTarget.checked) {
+        window.localStorage.setItem("modePref", "Dark")
+        switchModes()
+    } else {
+        switchModes()
+        window.localStorage.setItem("modePref", "Light")
+    }
+  })
+
+function switchModes() {
+    if (dModeToggle.checked) {
+        bodyEl.classList.add("darkmode")
+        h1[0].classList.add("dmodeH")
+        for (let x=0; x < h3.length; x++) {
+            h3[x].classList.add("dmodeH")
+        }
+        bottomSection.classList.add("dmodeBottom")
+        for (let i=0; i < subSection.length; i++) {
+            subSection[i].classList.add("dmodeSubSection")
+        }
+    }
+    else {
+        bodyEl.classList.remove("darkmode")
+        h1[0].classList.remove("dmodeH")
+        for (let x=0; x < h3.length; x++) {
+            h3[x].classList.remove("dmodeH")
+        }
+        bottomSection.classList.remove("dmodeBottom")
+        for (let i=0; i < subSection.length; i++) {
+            subSection[i].classList.remove("dmodeSubSection")
+        }
+    }
+}

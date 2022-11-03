@@ -6,7 +6,7 @@
 
 ## Overview
 
-Live version: [Unit Converter](https://metconverter.netlify.app/)
+**Live version [here](https://metconverter.netlify.app/)**
 I'm currently refreshing my entire JavaScript knowledge through a course on [Scrimba](https://scrimba.com/allcourses)
 
 The assignment was to make a simple unit converter (Imperial -> Metric and vice versa)

@@ -33,7 +33,8 @@ On top of that, I extended the stretch goal by implementing a function that read
 When you change the theme, it is saved to LocalStorage, so your preference is kept ^^
 
 Ah, and I added Fahrenheit conversion too, cause I needed that one the most haha.
-
+<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/unit-converter/light-mode.jpg">
+<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/unit-converter/dark-mode.jpg">
 
 ## Conclusion
 
